@@ -1,0 +1,13 @@
+apiVersion: kuttl.dev/v1beta1
+kind: TestStep
+commands:
+  - script: |
+      if kyverno apply example-policy.yaml --resource pod-with-label-1.yaml --resource pod-with-label-2.yaml 
+
+      then 
+        echo "Test succeeded."
+        exit 0
+      else 
+        echo "Test failed"
+        exit 1 
+      fi

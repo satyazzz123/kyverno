@@ -1,0 +1,11 @@
+# pod-with-label.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: example-pod
+  labels:
+    team: engineering1234
+spec:
+  containers:
+  - name: nginx
+    image: nginx:latest

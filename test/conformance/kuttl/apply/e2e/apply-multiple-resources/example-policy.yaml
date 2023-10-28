@@ -1,0 +1,19 @@
+# example-policy.yaml
+apiVersion: kyverno.io/v1
+kind:  ClusterPolicy
+metadata:
+  name: example-policy
+spec:
+  validationFailureAction: enforce
+  rules:
+  - name: disallow-pod-without-label
+    match:
+      resources:
+        kinds:
+        - Pod
+    validate:
+      message: "Pods must have a 'team' label."
+      pattern:
+        metadata:
+          labels:
+            team: "?*"
